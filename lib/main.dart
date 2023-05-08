@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text('Flutter_bloc : Roll Dice App !'),
+          child: Image.asset(
+            'assets/images/dice-4.png',
+            width: 200,
+          ),
         ),
       ),
     ),
