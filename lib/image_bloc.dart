@@ -9,6 +9,7 @@ import 'package:roll_dice_app_1/image_state.dart';
 class ImageBloc extends Bloc<ImageEvent, ImageState> {
   final List<String> images;
 
+  // prend en charge la gestion de l'état et de la logique de l'application.
   ImageBloc(this.images) : super(ImageState(images[0])) {
     // methode on enregistre le gestionnaire d'événement pour l'événement ChangeImageEvent
     on<ChangeImageEvent>((event, emit) {

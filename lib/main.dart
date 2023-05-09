@@ -27,18 +27,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final imageBloc = createImageBloc();
 
+    // permet de fournir l'instance de notre bloc (ImageBloc)
+    /// Cela permet aux widgets d'accéder au ImageBloc et de réagir aux changements d'état
     return BlocProvider(
       create: (context) => imageBloc,
       child: MaterialApp(
         title: "Visionneuse d'images",
         home: Scaffold(
           body: Center(
+            // pour écouter les changements d'état du ImageBloc
+            /// et reconstruire dynamiquement l'interface utilisateur en fonction de l'état actuel
             child: BlocBuilder<ImageBloc, ImageState>(
               builder: (context, state) {
+                // À chaque fois que l'état du ImageBloc change, le BlocBuilder reconstruit son enfant
+                // (dans ce cas, la colonne de widgets) en utilisant le nouvel état
                 return Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset(state.imagePath, width: 200),
+                    // accéder à l'état actuel du ImageBloc et mettre à jour l'interface utilisateur
+                    Image.asset(state.imagePath, width: 200), // l'état actuel
                     const SizedBox(height: 20),
                     TextButton(
                       onPressed: () {
